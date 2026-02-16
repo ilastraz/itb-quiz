@@ -8,6 +8,7 @@
   var popupWrapper = document.querySelector('.popup-wrapper');
   var popupWinner = document.querySelector('.popup-content-winner');
   var popupLoser = document.querySelector('.popup-content-loser');
+  var popupCloseButtons = Array.prototype.slice.call(document.querySelectorAll('.popup-close'));
   var shareButtons = Array.prototype.slice.call(document.querySelectorAll('.popup-cta'));
 
   if (!quizImageEl || !questionEl || answerButtons.length !== 4 || !popupWrapper || !popupWinner || !popupLoser) {
@@ -15,12 +16,14 @@
   }
 
   var ANSWER_DELAY_MS = 1000;
+  var SHARE_URL = 'https://www.ita-airways.com';
   var currentQuestion = pickRandomQuestion(questions);
   var selected = false;
 
   renderQuestion(currentQuestion);
   bindAnswers();
   bindShareButtons();
+  bindPopupClose();
 
   function pickRandomQuestion(pool) {
     var randomIndex = Math.floor(Math.random() * pool.length);
@@ -74,6 +77,26 @@
     document.body.style.overflow = 'hidden';
   }
 
+  function closePopup() {
+    popupWrapper.style.display = 'none';
+    popupWinner.style.display = 'none';
+    popupLoser.style.display = 'none';
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+  }
+
+  function bindPopupClose() {
+    popupCloseButtons.forEach(function (button) {
+      button.addEventListener('click', closePopup);
+    });
+
+    popupWrapper.addEventListener('click', function (event) {
+      if (event.target === popupWrapper) {
+        closePopup();
+      }
+    });
+  }
+
   function bindShareButtons() {
     shareButtons.forEach(function (button) {
       button.addEventListener('click', function () {
@@ -86,7 +109,7 @@
     var shareData = {
       title: 'ITA Airways - The Italian Piazza',
       text: question.shareText || 'Ho appena giocato al quiz ITA Airways.',
-      url: window.location.href
+      url: SHARE_URL
     };
 
     if (navigator.share) {
@@ -102,7 +125,7 @@
       }
     }
 
-    var encodedText = encodeURIComponent(shareData.text + ' ' + shareData.url);
+    var encodedText = encodeURIComponent(shareData.text + ' ' + SHARE_URL);
     window.open('https://wa.me/?text=' + encodedText, '_blank', 'noopener,noreferrer');
   }
 
