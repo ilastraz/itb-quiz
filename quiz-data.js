@@ -171,7 +171,7 @@ window.QUIZ_DATA = [{
   },
   {
     id: "venezia",
-    question: "WWhich traditional boat is typical of Venice?",
+    question: "Which traditional boat is typical of Venice?",
     quizImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/69922e95d6611dd408ba4722_Quiz-Venezia.avif",
     shareImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/6992edd49c37e0af9177df62_Stories_Venezia.jpg",
     answers: ["Ferry", "Gondola", "Vaporetto", "Speedboat Taxi"],
