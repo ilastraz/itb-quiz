@@ -99,15 +99,6 @@ window.QUIZ_DATA = [{
   },
   {
     id: "milano",
-    question: "Which food tradition is associated with Milan?",
-    quizImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/69922e95a8d946d6ff878706_Quiz-milano.avif",
-    shareImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/6992edd4250a9b9bd00aad58_Stories_Milano.jpg",
-    answers: ["Aperitivo", "Sushi night", "Tapas hour", "Brunch festival"],
-    correctIndex: 0,
-    shareText: "Ready to travel together? I’ve just discovered my next Italian destination with ITA Airways."
-  },
-  {
-    id: "milano",
     question: "When did the construction of Milan’s Duomo begin?",
     quizImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/69922e95a8d946d6ff878706_Quiz-milano.avif",
     shareImage: "https://cdn.prod.website-files.com/6990fa55b555b4429be5b74a/6992edd4250a9b9bd00aad58_Stories_Milano.jpg",
